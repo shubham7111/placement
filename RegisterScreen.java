@@ -1,7 +1,10 @@
 
+import com.mysql.jdbc.ResultSetMetaData;
+import com.mysql.jdbc.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -257,21 +260,29 @@ public class RegisterScreen extends javax.swing.JFrame {
             ps.setString(5,city);
             ps.setString(6,pn);
             ps.setString(7,str1);
-            int num=ps.executeUpdate();
-            
-            if(num>0){
-                JOptionPane.showMessageDialog(rootPane, "Registered successfully");
-                
-
+            int numofrow=ps.executeUpdate();
+          /*  String  query="select username, userpass, contact, email, city, pincode, gender from personaldetails";
+            java.sql.Statement st=null;
+            ResultSet rs=null;
+            st=conn.createStatement();
+            rs=st.executeQuery(query);
+            ResultSetMetaData rsmd=(ResultSetMetaData)rs.getMetaData();
+            int  numofcol=rsmd.isNullable(6);
+            System.out.println(numofcol);
+            //*/if(un.isEmpty() || up.isEmpty()|| uc.isEmpty()|| ue.isEmpty()|| city.isEmpty()|| pn.isEmpty()||str1.isEmpty()){
+          JOptionPane.showMessageDialog(rootPane, "Not Registered");
             }
-            else{
-                JOptionPane.showMessageDialog(rootPane, "not registered");
-                
+            else if(numofrow>0){
+                 JOptionPane.showMessageDialog(rootPane, "Registered successfully");
+                loginForm lg=new loginForm();
+                lg.setVisible(true);
+                this.setVisible(false);
             }
             
         } catch (Exception e) {
             System.out.println(e);
         }
+        
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void cmbcityItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbcityItemStateChanged

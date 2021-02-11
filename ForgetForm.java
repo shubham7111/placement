@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -149,6 +148,8 @@ public class ForgetForm extends javax.swing.JFrame {
 			String apiKey = "apikey=" + "D2WH8QRHioQ-qXsZyNROmIx59FJ7S9XsW0Zcl4NZU1";
                         Random rand =new Random();
                         OTP=rand.nextInt(999999);
+                        System.out.println(OTP);
+                        
                         String name=txtName.getText();
 			String message = "&message=" + "HEY SURESH BABU"+name+"Your OTP is"+OTP;
 			String sender = "&sender=" + "SKInd";
@@ -183,12 +184,18 @@ public class ForgetForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtverifyActionPerformed
 
     private void btnverifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverifyActionPerformed
-if(String.valueOf(txtverify.getText())==String.valueOf(OTP)){
-    JOptionPane.showMessageDialog(null,"password reset");
+
+    if(Integer.parseInt(txtverify.getText())==OTP)
+{
+    JOptionPane.showMessageDialog(null,"Password Reset Successfully");
+    Newpassword np=new Newpassword();
+    np.setVisible(true);
+    this.setVisible(false);
 }
 else{
     JOptionPane.showMessageDialog(null, "wrong Otp");
 }
+    
     }//GEN-LAST:event_btnverifyActionPerformed
 
     /**

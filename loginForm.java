@@ -167,7 +167,7 @@ public class loginForm extends javax.swing.JFrame {
             Connection conn=DriverManager.getConnection(
             "jdbc:mysql://localhost:3306/placement","root","Mysql@123");
             
-            PreparedStatement ps=conn.prepareStatement("select * from personaldetails where username=? and userpass=?");
+            PreparedStatement ps=conn.prepareStatement("select * from personaldetails where BINARY username=? and BINARY userpass=?");
             ps.setString(1, un);
             ps.setString(2, up);
             
@@ -197,11 +197,13 @@ public class loginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnclickActionPerformed
 
     private void btnforgetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnforgetActionPerformed
-        
+     ForgetForm ff=new ForgetForm();
+     ff.setVisible(true);
+     this.setVisible(false);
     }//GEN-LAST:event_btnforgetActionPerformed
 
     private void btnforgetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnforgetMouseClicked
-        JOptionPane.showMessageDialog(rootPane, "Password reset link is sent to the registered email id");
+         
     }//GEN-LAST:event_btnforgetMouseClicked
 
     private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed

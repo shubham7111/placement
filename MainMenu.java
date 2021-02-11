@@ -139,13 +139,13 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnregisterActionPerformed
 
     private void btnfeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfeeActionPerformed
-        StudentFeeSubmission fe=new StudentFeeSubmission();
+        DocumentsUpload fe=new DocumentsUpload();
         fe.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnfeeActionPerformed
 
     private void btnreportcardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportcardActionPerformed
-        StudentReportCard rp=new StudentReportCard();
+        ResumeUpload rp=new ResumeUpload();
         rp.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnreportcardActionPerformed
